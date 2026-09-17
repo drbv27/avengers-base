@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avengers Assemble!!!</title>
+    <link rel="icon" href="./assets/img/favicon.ico" />
+
+
+    <!-- PASO 2: aca va a ir Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- PASO 1: aca va a ir el reset y nuestro CSS -->
+     <link rel="stylesheet" href="./styles/styles.css">
+    <!-- PASO 4: aca van a ir las fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- =====================================================
+         NAVEGACION
+         ===================================================== -->
+    <!--Comienza Barra navegacion-->
+    <header>
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/img/LogoLetra.png" alt="Avengers" id="logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#videos">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#team">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./otrapagina.html">Other Page</a>
+              </li>
+            </ul>
+            <form class="d-flex gap-2" role="search">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search files..."
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-light" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--Termina barra navegacion-->
+
+    <main>
+      <!-- =====================================================
+           HERO
+           ===================================================== -->
+      <!--Inicia Hero Container-->
+      <!-- Grid de 1x1: fondo, overlay y contenido comparten celda -->
+      <section class="hero" id="home">
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content container">
+          <div class="row align-items-center g-4 w-100">
+            <!-- Texto: primero en el DOM = primero en mobile -->
+            <div class="col-lg-7 order-lg-1">
+              <p class="eyebrow mb-3">Priority one // Global threat</p>
+              <h1 class="hero__title mb-4">
+                Avengers
+                <span>Assemble</span>
+              </h1>
+              <p class="hero__lead mb-4">
+                Earth just ran out of time. Director Fury is opening the
+                Initiative to a new generation of agents. If you can hold the
+                line, we want your name on the file.
+              </p>
+              <div class="d-flex flex-wrap gap-3 mb-5 justify-content-center justify-content-lg-start">
+                <button class="btn btn-primary btn-lg" type="button">
+                  Attend the call
+                </button>
+                <a class="btn btn-outline-light btn-lg" href="#videos">
+                  <i class="bi bi-play-circle me-2"></i>Watch the briefing
+                </a>
+              </div>
+              <ul class="stats mb-0">
+                <li>
+                  <strong>06</strong>
+                  <span>Founding members</span>
+                </li>
+                <li>
+                  <strong>12</strong>
+                  <span>Threats neutralized</span>
+                </li>
+                <li>
+                  <strong>24/7</strong>
+                  <span>Global watch</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Retrato: segundo en el DOM, se va abajo en mobile -->
+            <div class="col-lg-5 order-lg-2 text-center">
+              <img
+                class="hero__portrait"
+                src="./assets/img/nickFury.png"
+                alt="Director Nick Fury"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Termina Hero Container-->
+
+      <!-- =====================================================
+           RECLUTAMIENTO
+           ===================================================== -->
+      <section class="recruit py-4">
+        <div class="container">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-3">
+              <p class="eyebrow mb-1">Recruitment</p>
+              <p class="mb-0 small text-white-50">
+                Two fields. That is the whole application.
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <label class="visually-hidden" for="codeName">Code name</label>
+              <input
+                id="codeName"
+                type="text"
+                placeholder="Enter your code name..."
+                class="form-control form-control-lg"
+              />
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="visually-hidden" for="agentEmail">Email</label>
+              <input
+                id="agentEmail"
+                type="email"
+                placeholder="Enter your agent email..."
+                class="form-control form-control-lg"
+              />
+            </div>
+            <div class="col-lg-2 d-grid">
+              <button class="btn btn-primary btn-lg" type="button">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           VIDEOS
+           ===================================================== -->
+      <section id="videos" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <p class="eyebrow mb-2">Archive footage</p>
+            <h2 class="section-title mb-3">Legendary Battles</h2>
+            <p class="section-subtitle mb-0">
+              Declassified recordings from the four engagements that redefined
+              what the Initiative was built for.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <!--***Inicia card1-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100">
+                <div class="ratio ratio-16x9">
+                  <iframe
+
+                  ></iframe>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">New York Battle</h3>
+                  <p class="card-text mb-0">
+                    The Chitauri invasion. Six strangers became a team in the
+                    middle of Manhattan.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <!--***Termina card1-->
+            <!--***Inicia card2-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100">
+                <div class="ratio ratio-16x9">
+                  <iframe
+
+                  ></iframe>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Civil War</h3>
+                  <p class="card-text mb-0">
+                    The Accords split the roster in two. No aliens this time,
+                    just principles.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <!--***Termina card2-->
+            <!--***Inicia card3-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100">
+                <div class="ratio ratio-16x9">
+                  <iframe
+
+                  ></iframe>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Wakanda Battle</h3>
+                  <p class="card-text mb-0">
+                    The last stand before the snap. An entire nation opened its
+                    shield for the world.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <!--***Termina card3-->
+            <!--***Inicia card4-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100">
+                <div class="ratio ratio-16x9">
+                  <iframe
+
+                  ></iframe>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Endgame Battle</h3>
+                  <p class="card-text mb-0">
+                    Every hero, one portal at a time. The fight that closed the
+                    Infinity Saga.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <!--***Termina card4-->
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           EQUIPO
+           ===================================================== -->
+      <section id="team" class="section-alt py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <p class="eyebrow mb-2">Active roster</p>
+            <h2 class="section-title mb-3">The Team</h2>
+            <p class="section-subtitle mb-0">
+              Four operatives cleared for global deployment. Different powers,
+              different tempers, one line they will not let anyone cross.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <!--***Tarjeta hero1-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100 text-center">
+                <div class="member__avatar member__avatar--cap mt-4">
+                  <img src="./assets/img/captainA.png" alt="Captain America" />
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Captain America</h3>
+                  <p class="card-text flex-grow-1">
+                    Super-soldier, tactical lead and the moral compass nobody
+                    voted for but everybody follows.
+                  </p>
+                  <div class="member__social">
+                    <a
+                      href="https://www.facebook.com/CaptainAmerica/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Captain America on Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a
+                      href="https://twitter.com/captainamerica?lang=es"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Captain America on X"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/official_captainamerica/?hl=es-la"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Captain America on Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.marvel.com/characters/captain-america-steve-rogers"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Captain America on Marvel.com"
+                    >
+                      <img src="./assets/img/captainem.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!--***Tarjeta hero1-->
+            <!--***Tarjeta hero2-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100 text-center">
+                <div class="member__avatar member__avatar--iron mt-4">
+                  <img src="./assets/img/ironman.png" alt="Iron Man" />
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Iron Man</h3>
+                  <p class="card-text flex-grow-1">
+                    Engineer, financier and the armor that turns a bad idea into
+                    a working prototype overnight.
+                  </p>
+                  <div class="member__social">
+                    <a
+                      href="https://www.facebook.com/ironman/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Iron Man on Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a
+                      href="https://twitter.com/IronMan"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Iron Man on X"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/ironman/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Iron Man on Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.marvel.com/characters/iron-man-tony-stark"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Iron Man on Marvel.com"
+                    >
+                      <img src="./assets/img/ironem.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!--***Tarjeta hero2-->
+            <!--***Tarjeta hero3-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100 text-center">
+                <div class="member__avatar member__avatar--thor mt-4">
+                  <img src="./assets/img/thor.png" alt="Thor" />
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Thor</h3>
+                  <p class="card-text flex-grow-1">
+                    God of Thunder, heir of Asgard and the heaviest artillery
+                    the roster can call by name.
+                  </p>
+                  <div class="member__social">
+                    <a
+                      href="https://www.facebook.com/Thor/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Thor on Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a
+                      href="https://twitter.com/thorofficial"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Thor on X"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/thorofficial/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Thor on Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.marvel.com/characters/thor-thor-odinson"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Thor on Marvel.com"
+                    >
+                      <img src="./assets/img/thorem.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!--***Tarjeta hero3-->
+            <!--***Tarjeta hero4-->
+            <div class="col-md-6 col-lg-3">
+              <article class="card h-100 text-center">
+                <div class="member__avatar member__avatar--hulk mt-4">
+                  <img src="./assets/img/hulk3.png" alt="Hulk" />
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Hulk</h3>
+                  <p class="card-text flex-grow-1">
+                    Seven tons of gamma-powered leverage, plus the smartest mind
+                    in the room when he feels like sharing it.
+                  </p>
+                  <div class="member__social">
+                    <a
+                      href="https://www.facebook.com/Hulk/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Hulk on Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a
+                      href="https://twitter.com/hulk"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Hulk on X"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/hulk/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Hulk on Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.marvel.com/characters/hulk-bruce-banner"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Hulk on Marvel.com"
+                    >
+                      <img src="./assets/img/hulkem.png" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!--***Tarjeta hero4-->
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ACERCA DE
+           ===================================================== -->
+      <section id="about" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <p class="eyebrow mb-2">Open a channel</p>
+            <h2 class="section-title mb-3">About Us</h2>
+            <p class="section-subtitle mb-0">
+              Headquarters sits at 200 Park Avenue. Send the message, we read
+              every one of them.
+            </p>
+          </div>
+
+          <div class="row g-4 align-items-stretch">
+            <!--inicia formulario-->
+            <div class="col-lg-7">
+              <form class="card h-100 p-4">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="addon-user">
+                    <i class="bi bi-person-bounding-box"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="addon-user"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="addon-mail">
+                    <i class="bi bi-envelope-check"></i>
+                  </span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="Email"
+                    aria-describedby="addon-mail"
+                  />
+                </div>
+                <div class="input-group mb-4">
+                  <span class="input-group-text" id="addon-msg">
+                    <i class="bi bi-pencil"></i>
+                  </span>
+                  <textarea
+                    class="form-control"
+                    placeholder="Describe the situation..."
+                    aria-label="Message"
+                    aria-describedby="addon-msg"
+                    rows="8"
+                  ></textarea>
+                </div>
+                <div class="d-grid mt-auto">
+                  <button class="btn btn-primary btn-lg" type="button">
+                    Send transmission
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!--termina formulario-->
+            <!--Inicia mapa-->
+            <div class="col-lg-5 d-flex flex-column gap-3">
+              <img
+                src="./assets/img/logoTexto.png"
+                alt="Avengers"
+                class="img-fluid mx-auto"
+                style="max-width: 14rem"
+              />
+              <div class="map-frame ratio ratio-4x3 flex-grow-1">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6880479801753!2d-73.98646788896795!3d40.74688927126907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a83b7d9cf9%3A0xebc46eea51cad42a!2sTorre%20de%20los%20Avengers!5e0!3m2!1ses-419!2sco!4v1748571571903!5m2!1ses-419!2sco"
+                  title="Avengers Tower location"
+                  style="border: 0"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            <!--termina mapa-->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer>
+      <img src="./assets/img/logoTexto.png" alt="Avengers" />
+      <p>Copyright &copy; 2025 Diego Bonilla</p>
+      <div>
+        <a href="#">Facebook</a>
+        <a href="#">X</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </footer>
+
+    <!-- PASO 2: aca va a ir el JS de Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+    </body>
+</html>

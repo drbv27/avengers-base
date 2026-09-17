@@ -1,0 +1,218 @@
+/* =========================================================
+   AVENGERS — styles.css
+   Orden de lectura:
+     1. Tokens        2. Base
+     3. Navbar        4. Hero (CSS Grid)
+     5. Secciones     6. Tarjetas
+     7. Formularios   8. Footer
+     9. Responsive
+
+   Regla del proyecto: Bootstrap resuelve el LAYOUT (grid, utilidades),
+   este archivo resuelve la IDENTIDAD (color, ritmo, profundidad).
+   ========================================================= */
+
+/* ---------- 1. TOKENS ------------------------------------ */
+ :root {
+  /* Paleta */
+  --navy-900: #04060f;
+  --navy-800: #080d20;
+  --navy-700: #0e1633;
+  --red-500: #e23636;
+  --red-600: #b31d1d;
+  --gold-400: #f0b323;
+  --ink-100: #eaeefb;
+  --ink-400: #98a4c6;
+
+  /* Escala de espaciado y forma */
+  --radius: 1rem;
+  --ring: 0 0 0 1px rgb(255 255 255 / 8%);
+  --shadow: 0 1.5rem 3rem rgb(0 0 0 / 55%);
+  --ease: 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  /* Tipografia fluida: min / preferido / max. Sin media queries. */
+  --fs-display: clamp(2.75rem, 7.5vw, 6rem);
+  --fs-h2: clamp(1.9rem, 4vw, 3.25rem);
+  --fs-lead: clamp(1rem, 1.6vw, 1.25rem);
+
+  /* Overrides de Bootstrap 5.3 (usa CSS vars, se pisan desde aca) */
+  --bs-body-bg: var(--navy-900);
+  --bs-body-color: var(--ink-100);
+  --bs-body-font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --bs-link-color: var(--gold-400);
+  --bs-link-hover-color: #ffffff;
+  --bs-border-radius: var(--radius);
+}
+
+/* ---------- 2. BASE -------------------------------------- */
+
+/*-- Reset de Estilos --*/
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   overflow-x: hidden; /* red de seguridad  contra desbordes horizontales*/
+}
+
+/* titulos con caracter heroico */
+h1,
+h2 {
+   font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+   letter-spacing: 0.02rem;
+}
+
+/*-- Etiqueta pequenia tipo expediente clasificado --*/
+.eyebrow {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   font: 0.75rem;
+   font-weight: 700;
+   letter-spacing: 0.25rem;
+   text-transform: uppercase;
+   color: var(--gold-400);
+}
+
+
+.eyebrow::before {
+   content: "";
+   width: 2rem;
+   height: 2px;
+   background: currentColor; /*opcional los colocan tal cual o este que es heredar el color del renglon */
+}
+
+/* sobreescribimos el boton primario*/
+.btn-primary {
+  --bs-btn-bg: var(--red-500);
+  --bs-btn-border-color: var(--red-500);
+  --bs-btn-hover-bg: var(--red-600);
+  --bs-btn-hover-border-color: var(--red-600);
+  --bs-btn-active-bg: var(--red-600);
+  --bs-btn-active-border-color: var(--red-600);
+  --bs-btn-focus-shadow-rgb: 226, 54, 54;
+}
+
+.btn {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding-inline: 2rem;
+}
+
+
+/*---------- 3. Navbar ----------*/
+.navbar {
+  background: rgb(4 6 15 / 72%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+#logo {
+  width: 4rem;
+  height: auto;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+/* Subrayado animado con pseudo-elemento: 6 lineas, cero JS */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.15rem;
+  height: 2px;
+  background: var(--red-500);
+  transform: scaleX(0);
+  transition: transform var(--ease);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- 4. HERO (CSS Grid en capas) ------------------ */
+/*
+   Tecnica clave: un grid de 1x1 donde TODOS los hijos van a
+   `grid-area: 1 / 1`. Se apilan sin position:absolute y sin z-index
+   inventado. Adios al grid de 8x8 con spans magicos.
+
+   La foto va como `background` y no como <img>: un <img> hijo de grid
+   impone su altura intrinseca y estira la seccion. Ademas es decorativa.
+*/
+.hero {
+  display: grid;
+  min-height: 38rem;
+  min-height: clamp(38rem, 88svh, 52rem);
+  isolation: isolate;
+  background-image: url("../assets/img/Base-de-los-vengadores-y-el-Quinjet.jpg");
+  background-size: cover;
+  background-position: center 35%;
+}
+
+.hero > * {
+   grid-area: 1 / 1;
+}
+
+.hero__overlay {
+     background: linear-gradient(
+      to bottom,
+      rgb(4 6 15 / 82%) 0%,
+      rgb(4 6 15 / 40%) 35%,
+      rgb(4 6 15 / 96%) 100%
+    ),
+    radial-gradient(
+      70% 60% at 72% 45%,
+      rgb(226 54 54 / 22%) 0%,
+      transparent 70%
+    );
+} 
+
+.hero__content {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding-block: 5rem 3.5rem;
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 0.5rem 2.5rem rgb(0 0 0 / 70%);
+}
+
+.hero__title span {
+  color: var(--red-500);
+  display: block;
+}
+
+.hero__lead {
+  font-size: var(--fs-lead);
+  color: var(--ink-400);
+  max-width: 46ch;
+}
+
