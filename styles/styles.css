@@ -466,3 +466,24 @@ footer img {
     display: none;
   }
 }
+
+/*---------- 10. MOVIMIENTO REDUCIDO ----------*/
+
+/* No es un extra de accesibilidad: es una preferencia que la persona ya
+   configuro en su sistema operativo, casi siempre porque el movimiento le
+   da mareo o migrana. El navegador nos la pasa y solo hay que escucharla.
+
+   `scroll-behavior: auto` cancela el desplazamiento suave de la seccion 2,
+   y la transicion de 0.01ms apaga TODAS las animaciones sin romper el JS
+   que a veces espera el evento `transitionend`. Por eso no se pone 0. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

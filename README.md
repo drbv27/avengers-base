@@ -46,11 +46,12 @@ El HTML ya está escrito. El trabajo de la clase es el CSS.
 | 6. Tarjetas | hecho |
 | 7. Formularios | hecho |
 | 8. Footer | hecho |
-| 9. Responsive | en progreso |
+| 9. Responsive | hecho |
+| 10. Movimiento reducido | hecho |
 
-De la sección 9 falta el bloque `@media (prefers-reduced-motion: reduce)`: la
-pasada que respeta a quien configuró su sistema para ver menos animación. El
-reordenamiento del hero en pantallas chicas ya está.
+El CSS está completo. La sección 10 respeta a quien configuró su sistema para
+ver menos animación: no es un extra, es una preferencia que la persona ya tomó
+y que el navegador nos pasa.
 
 ## Los comentarios `PASO N`
 
