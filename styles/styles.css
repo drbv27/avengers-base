@@ -216,3 +216,253 @@ h2 {
   max-width: 46ch;
 }
 
+
+/* Se limita por altura: es una imagen vertical, si la atamos al ancho se estira toda la seccion sin que se note de donde viene */
+
+.hero__portrait {
+   width: auto;
+   max-width: 100%;
+   max-height: 30rem; /*tamanio inicial ajustando a ojo*/
+   max-height: clamp(16rem, 66svh, 34rem);
+   filter: drop-shadow(0 1.5rem 2.5rem rgb(0 0 0 / 70%));
+}
+
+/* Tira de estadisticas: flexbox puro con wrap */
+
+.stats {
+   display: flex;
+   flex-wrap: wrap;
+   gap:clamp(1rem,4vw,3rem);
+   list-style: none;
+}
+
+.stats strong {
+   display: block;
+   font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+   font-size: clamp(1.75rem,3vw,2.5rem);
+   line-height: 1;
+   color:var(--gold-400)
+}
+
+.stats span {
+   font-size: 0.75rem;
+   letter-spacing: 0.18em;
+   text-transform: uppercase;
+   color: var(--ink-400);
+}
+
+/*---------- 5. SECCIONES ----------*/
+.section-alt {
+   background: var(--navy-800);
+   border-block: 1px solid rgb(255 255 255 /6%);
+}
+
+.section-title {
+   font-size: var(--fs-h2);
+   text-transform: uppercase;
+   text-wrap: balance;
+}
+
+.section-subtitle {
+   color: var(--ink-400);
+   max-width: 60ch;
+   margin-inline: auto;
+}
+
+.recruit {
+   background: linear-gradient(
+      100deg,
+      var(--red-600),
+      var(--navy-700),
+      var(--navy-800)
+   );
+}
+
+/*---------- 6. TARJETAS ----------*/
+
+.card {
+  --bs-card-bg: rgb(255 255 255 / 4%);
+  --bs-card-border-color: rgb(255 255 255 / 10%);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--ease), box-shadow var(--ease),
+    border-color var(--ease);
+}
+
+.card:hover {
+   transform: translateY(-6px);
+   border-color: rgb(255 54 54 / 40%);
+   box-shadow: var(--shadow);
+}
+
+.card-title {
+   font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+   letter-spacing: 0.05em;
+   font-size: 1.4rem;
+}
+
+.card-text {
+   color: var(--ink-400);
+   font-size: 0.925rem;
+}
+
+/*Retrato circular: marco degradado, la imagen respira dentro*/
+.member__avatar{
+   width: clamp(7rem,40%,9.5rem);
+   aspect-ratio: 1;
+   margin-inline: auto;
+   border-radius: 50%;
+   overflow: hidden;
+   background: radial-gradient(circle at 50% 20%, var(--navy-700),var(--navy-900));
+   box-shadow: inset var(--ring), 0 0 0 2px rgb(226 54 54 /35%);
+   transition:box-shadow var(--ease)
+}
+
+.card:hover .member__avatar {
+   box-shadow: inset var(--ring), 0 0 0 3px var(--red-500),
+   0 0 2rem rgb(226 54 54 /45%);
+}
+
+/* `cover` llena el circulo y deja que el border-radius recorte la foto.
+   Con `contain` entraria la imagen completa y se verian sus bordes
+   rectangulares adentro del circulo: un cuadrado dentro de un circulo. */
+.member__avatar img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center 20%;
+}
+
+/* `object-position` es el ENCUADRE. Las cuatro fotos traen al personaje
+   en un lugar distinto, asi que una sola regla no alcanza: cada uno
+   lleva el suyo. Es el equivalente CSS de mover la camara. */
+
+.member__avatar--cap img {
+   object-position: center 28%;
+}
+
+.member__avatar--iron img{
+   object-position: center 18%;
+}
+
+.member__avatar--thor img {
+   object-position: center 12%;
+}
+
+.member__avatar--hulk img {
+   object-position: center top;
+}
+
+/*fila rede sociales */
+
+.member__social {
+   display: flex;
+   justify-content: center;
+   gap: 0.25rem;
+}
+
+.member__social a {
+   display: grid;
+   place-items: center;
+   width: 2.75rem;
+   height: 2.75rem;
+   border-radius: 50%;
+   color: var(--ink-400);
+   font-size: 1.3rem;
+   text-decoration: none;
+   transition: color var(--ease), background-color var(--ease);
+}
+
+.member__social a:hover {
+   color: #fff;
+   background: var(--red-500);
+}
+
+
+.member__social img {
+   width: 2rem;
+   height: auto;
+}
+
+/*---------- 7. FORMULARIOS ----------*/
+
+.form-control, 
+.input-group-text {
+   background: rgb(255 255 255 / 5%);
+   border-color: rgb(255 255 255 / 12%);
+   color: var(--ink-100);
+}
+
+.form-control::placeholder {
+   color: rgb(152 164 198 /70%);
+}
+
+.form-control:focus {
+   background: rgb(255 255 255 /8%);
+   border-color: var(--red-500);
+   box-shadow: 0 0 0 0.25rem rgb(226 54 54 /25%);
+   color: var(--ink-100);
+}
+
+/* Truco clasico: Google Maps no tiene modo oscuro en el embed,
+   se invierte y se rota el matiz 180deg para devolver los colores. */
+
+.map-frame {
+   border-radius: var(--radius);
+   overflow: hidden;
+   box-shadow: var(--shadow);
+   filter: invert(0.92) hue-rotate(180deg) saturate(0.7) contrast(0.95);
+}
+
+/*---------- 8. FOOTER ----------*/
+footer {
+   background: var(--navy-800);
+   border-top: 1px solid rgb(255 255 255 /8%);
+   color: var(--ink-400);
+}
+
+footer img {
+   width: 8rem;
+   height: auto;
+}
+
+/*organizar el footer a su gusto, yo lo dejo burdo */
+
+/*---------- 9. RESPONSIVE ----------*/
+@media (max-width:991.98px) {
+   .hero {
+    min-height: 34rem;
+    min-height: clamp(34rem, 82svh, 46rem);
+    text-align: center;
+  }
+
+  .hero__content {
+    padding-block: 5rem 3rem;
+  }
+
+  .hero__lead {
+    margin-inline: auto;
+  }
+
+  /* Flexbox apilaba una estadistica por linea y estiraba el hero.
+     En mobile pasamos a Grid: tres columnas iguales, una sola fila. */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stats span {
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero__portrait {
+    max-height: clamp(11rem, 32svh, 16rem);
+    opacity: 0.9;
+  }
+
+  .eyebrow::before {
+    display: none;
+  }
+}
