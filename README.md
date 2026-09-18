@@ -41,15 +41,16 @@ El HTML ya está escrito. El trabajo de la clase es el CSS.
 | 1. Tokens (variables CSS) | hecho |
 | 2. Base (reset y tipografía) | hecho |
 | 3. Navbar | hecho |
-| 4. Hero (CSS Grid en capas) | en progreso |
-| 5. Secciones | pendiente |
-| 6. Tarjetas | pendiente |
-| 7. Formularios | pendiente |
-| 8. Footer | pendiente |
-| 9. Responsive | pendiente |
+| 4. Hero (CSS Grid en capas) | hecho |
+| 5. Secciones | hecho |
+| 6. Tarjetas | hecho |
+| 7. Formularios | hecho |
+| 8. Footer | hecho |
+| 9. Responsive | en progreso |
 
-Las secciones pendientes ya tienen su HTML en `index.html`: se ven sin estilo
-propio hasta que lleguemos a ellas. Es esperado.
+De la sección 9 falta el bloque `@media (prefers-reduced-motion: reduce)`: la
+pasada que respeta a quien configuró su sistema para ver menos animación. El
+reordenamiento del hero en pantallas chicas ya está.
 
 ## Los comentarios `PASO N`
 
